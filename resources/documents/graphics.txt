@@ -1,0 +1,25 @@
+       //smiley face
+//       g.drawOval(10, 10, 60, 60);
+//       g.setColor(Color.BLUE);
+//       g.fillOval(30, 30, 5, 5);
+//       g.setColor(Color.BLUE);
+//       g.fillOval(50, 30, 5, 5);
+//        g.drawArc(30, 45, 20, 10,0,180);
+        
+        //still clock
+//          g.drawOval(20, 20, 200, 200);
+//          //g.drawOval(120, 120, 5, 5);
+//          g.drawLine(120, 120, 120, 30);
+//          g.drawLine(120, 120, 140, 40);
+//          g.drawLine(120, 120, 160, 120);
+//int xPoints[]={10,290,150,150};
+//int yPoints[]={290,290,180,40};
+          g.drawLine(150, 40, 10, 290);
+          g.drawLine(10, 290, 290, 290);
+          g.drawLine(150, 40, 290, 290);
+          g.drawLine(150, 180,150, 40);
+          g.drawLine(150, 180,10, 290);
+          g.drawLine(150, 180,290, 290);
+          
+//          g.drawPolygon(xPoints, yPoints, 4);
+        

@@ -1,0 +1,21 @@
+SELECT
+    students.fname,students.lname
+    , candidates.reg_number 
+    , positions.position_name
+    ,posts.post_name
+    , votes.candidate_id,votes.post_id
+    , COUNT(votes.candidate_id) AS result
+FROM
+    smartvoter.students
+    INNER JOIN smartvoter.schools 
+        ON (students.school_id = schools.school_id)
+    INNER JOIN smartvoter.candidates 
+        ON (candidates.reg_number = students.reg_number) 
+    INNER JOIN smartvoter.positions 
+        ON (candidates.position = positions.position_id)
+    INNER JOIN smartvoter.posts
+        ON (candidates.post_id=posts.post_id)
+    INNER JOIN smartvoter.votes 
+        ON (votes.candidate_id = candidates.candidate_id) AND (votes.position_id = positions.position_id)
+               GROUP BY votes.candidate_id
+        ORDER BY votes.post_id,result DESC ;

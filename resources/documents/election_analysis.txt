@@ -1,0 +1,37 @@
+// total voters
+SELECT
+COUNT(DISTINCT reg_number) AS total
+   FROM votes
+
+//total students
+SELECT COUNT(reg_number)as registered_students
+
+//students per school
+SELECT students.school_id,schools.school_name
+,COUNT(DISTINCT reg_number) AS total
+   FROM students, schools WHERE students.school_id=schools.school_id
+   GROUP BY school_id
+
+//voters per school
+SELECT votes.school_id,schools.school_name
+,COUNT(DISTINCT reg_number) AS total
+   FROM votes, schools WHERE 
+   votes.school_id=schools.school_id
+   GROUP BY school_id
+        
+//registered voters for halls
+SELECT   residency.residence_name
+,COUNT(DISTINCT reg_number) AS total
+   FROM students, residency WHERE 
+   students.residence_id IN (10,11,12,13,14,15,16) AND residency.residence_id=students.residence_id
+   GROUP BY residency.residence_name
+        
+
+
+//voters per residence
+SELECT  residency.residence_name
+,COUNT(DISTINCT votes.reg_number) AS total
+   FROM students,votes, residency WHERE 
+students.reg_number=votes.reg_number AND
+   students.residence_id IN (10,11,12,13,14,15,16) AND residency.residence_id=students.residence_id
+   GROUP BY residence_name
